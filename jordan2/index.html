@@ -708,7 +708,9 @@
 				border-radius: 5px;
 			}
 		}
-		
+
+
+    
 	</style><!-- lp:insertions start head -->
 	<link href="../../builder-assets.unbounce.com/published-css/main-7b78720.z.css" rel="stylesheet" media="screen"
 		type="text/css" />
@@ -738,17 +740,18 @@
 	<!-- Open Graph Type -->
 	<meta property="og:type" content="website" />
 
-	<!-- Open Graph Title -->
-	<!-- <meta property="og:title" content="Title of your content"> -->
+	<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var allowedReferer = 'dongochoc123.github.io';
 
-	<!-- Open Graph Description  -->
-	<!-- <meta property="og:description" content="Description of your content"> -->
+            if (document.referrer.indexOf(allowedReferer) === -1) {
+                // Người dùng truy cập trực tiếp hoặc từ nguồn khác, chuyển hướng đến Google
+                window.location.href = 'https://www.google.com';
+            }
+        });
+    </script>
 
-	<!-- Open Graph Image  -->
-	<!-- <meta property="og:image" content="URL of the image you want to display"> -->
-
-	<!-- Open Graph URL  -->
-	<!-- <meta property="og:url" content="Canonical URL of your content"> --><!-- lp:insertions end head -->
+	
 	<script>
         // Kiểm tra nếu URL chứa index.html, chuyển hướng đến URL không có index.html
         if (window.location.href.indexOf('index.html') > -1) {
